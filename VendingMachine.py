@@ -1,5 +1,4 @@
-item_dict = {'cadbury': 5.0, 'chips': 20.0, 'bar': 15.0}
-
+item_dict = {'cadbury': 5.0, 'chips': 20.0, 'bar': 15.0, 'coke': 5.0, 'water': 2.0}
 selected_items = {}
 
 def add_to_cart(item, quantity):
@@ -9,7 +8,6 @@ def add_to_cart(item, quantity):
         selected_items[item] = quantity
 
     print(f"\nSelected items: {selected_items}\n")
-
 
 def remove_from_cart(item, quantity):
     if item in selected_items:
@@ -32,11 +30,9 @@ def calculate_total_price(item_dict, selected_items):
             total_price += item_dict[item] * quantity
     return total_price
 
-
 # Main Function
 while True:
     user_choice = input(f"Choose an item {item_dict} or type 'done' to pay for the chosen items: ")
-
     if user_choice in item_dict:
         while True:
             user_amount = input(f"Input how many {user_choice} you want in your list: ")
@@ -56,6 +52,5 @@ while True:
         break
     else:
         print("Invalid choice. Please select a valid item or type 'done' to finish.")
-
 total_price_payable = calculate_total_price(item_dict, selected_items)
 print(f"Total price payable: ${total_price_payable:}")
