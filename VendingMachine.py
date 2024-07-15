@@ -8,6 +8,9 @@ def add_to_cart(item, quantity):
     else:
         selected_items[item] = quantity
 
+    print(f"\nSelected items: {selected_items}\n")
+
+
 def remove_from_cart(item, quantity):
     if item in selected_items:
         existing_quantity = selected_items[item]
@@ -19,16 +22,17 @@ def remove_from_cart(item, quantity):
             print(f"Removed {quantity} {item} from the list. {selected_items[item]} {item} remaining.")
     else:
         print(f"{item} is not in the cart.")
+    print(f"\nSelected items: {selected_items}\n")
 
 def calculate_total_price(item_dict, selected_items):
     total_price = 0.0
+    print(f"\nSelected items: {selected_items}\n")
     for item, quantity in selected_items.items():
         if item in item_dict:
             total_price += item_dict[item] * quantity
-        else:
-            print(f"Item '{item}' not found in the item dictionary.")
-
     return total_price
+
+
 # Main Function
 while True:
     user_choice = input(f"Choose an item {item_dict} or type 'done' to pay for the chosen items: ")
@@ -52,7 +56,6 @@ while True:
         break
     else:
         print("Invalid choice. Please select a valid item or type 'done' to finish.")
-print("Selected items:", selected_items)
 
 total_price_payable = calculate_total_price(item_dict, selected_items)
 print(f"Total price payable: ${total_price_payable:}")
